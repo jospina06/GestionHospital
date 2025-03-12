@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.MenuViewController"
+            prefWidth="600" prefHeight="400"
+            style="-fx-background-color: #f4f4f4;">
+
+    <Text text="Gestión Hospitalaria" layoutX="170" layoutY="50"
+          style="-fx-font-weight: bold; -fx-font-size: 24px;"/>
+
+    <Button text="Gestión de Pacientes" layoutX="200" layoutY="100"
+            onAction="#irAGestionPacientes" prefWidth="200"/>
+
+    <Button text="Gestión de Doctores" layoutX="200" layoutY="150"
+            onAction="#irAGestionDoctores" prefWidth="200"/>
+
+    <Button text="Gestión de Citas" layoutX="200" layoutY="200"
+            onAction="#irAGestionCitas" prefWidth="200"/>
+
+    <Button text="Salir" layoutX="250" layoutY="300"
+            onAction="#salir" prefWidth="100" style="-fx-background-color: red; -fx-text-fill: white;"/>
+</AnchorPane>

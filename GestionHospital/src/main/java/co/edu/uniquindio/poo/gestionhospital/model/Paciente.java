@@ -72,8 +72,6 @@ public class Paciente extends Persona implements Cloneable{
         }
     }
 
-
-
     /**
      * Método para determinar si el nombre del paciente es palindromo
      * @return nombre revertido
@@ -108,6 +106,8 @@ public class Paciente extends Persona implements Cloneable{
         }
         return false;
     }
+
+
 
 
     @Override

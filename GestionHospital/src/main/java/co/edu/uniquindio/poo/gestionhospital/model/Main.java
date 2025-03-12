@@ -8,7 +8,7 @@ public class Main {
 
         Hospital hospital = new Hospital("Hospital del Quindío");
 
-        Paciente paciente0 = new Paciente("Juan", "123", 40);
+        Paciente paciente0 = new Paciente("pep", "123", 40);
         hospital.agregarPaciente(paciente0);
         hospital.agregarPaciente(new Paciente("María Gómez", "00", 25));
 
@@ -20,8 +20,8 @@ public class Main {
         hospital.agendarCita(LocalDate.of(1970, 5, 20), "123", "DR1");
 
 
-
-        System.out.println(hospital.listarCitasOrdenadasPorFecha());
+        hospital.imprimirPalindromos();
+        hospital.imprimirVocalesiguales();
 
     }
 
