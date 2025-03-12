@@ -252,6 +252,32 @@ public class Hospital {
         paciente.agregarMedicamentoUltimaConsulta(medicamento);
     }
 
+    //----------------------Métodos adicionales--------------------//
+
+    /**
+     * Método que imprime todos los pacientes con nombre palindromo
+     * @param
+     */
+    public void imprimirPalindromos(){
+        for (Paciente paciente : pacientes) {
+            if (paciente.esPalindromo()) {
+                System.out.println(paciente);
+            }
+        }
+    }
+
+    /**
+     * metodo que imprime los pacientes con dos vocales iguales en su nombre
+     * @param
+     */
+    public void imprimirVocalesiguales(){
+        for (Paciente paciente : pacientes) {
+            if (paciente.vocalesIguales()){
+                System.out.println(paciente);
+            }
+        }
+    }
+
 
 
 

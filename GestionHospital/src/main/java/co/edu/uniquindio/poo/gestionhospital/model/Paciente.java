@@ -73,6 +73,43 @@ public class Paciente extends Persona implements Cloneable{
     }
 
 
+
+    /**
+     * Método para determinar si el nombre del paciente es palindromo
+     * @return nombre revertido
+     */
+    public boolean esPalindromo(){
+        String nombreRevertido = new StringBuilder(getNombre()).reverse().toString();
+        return getNombre().equalsIgnoreCase(nombreRevertido);
+    }
+
+    /**
+     * Método que determina si el paciente tiene una vocal repetida en su nombre
+     * @return
+     */
+    public boolean vocalesIguales(){
+        String nombreMinusculas = getNombre().toLowerCase();
+        int[] contadorVocales = new int [5];
+
+        for (char c : nombreMinusculas.toCharArray()) {
+            switch (c) {
+                case 'a': contadorVocales[0]++; break;
+                case 'e': contadorVocales[1]++; break;
+                case 'i': contadorVocales[2]++; break;
+                case 'o': contadorVocales[3]++; break;
+                case 'u': contadorVocales[4]++; break;
+            }
+        }
+
+        for (int i : contadorVocales) {
+            if (i >= 2){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     @Override
     public String toString() {
         return  "Paciente: " + getNombre() + " (ID: " + getId() + ", Edad: " + getEdad() + ")\n" + historial;
