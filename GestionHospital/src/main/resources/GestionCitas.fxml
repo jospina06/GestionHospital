@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.GestionCitasViewController">
+<AnchorPane prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.GestionCitasViewController">
+    <children>
 
-    <TableView fx:id="tablaCitas" layoutX="25.0" layoutY="50" prefHeight="300" prefWidth="650.0">
-        <columns>
-            <TableColumn fx:id="colId" prefWidth="100" text="ID" />
-            <TableColumn fx:id="colFecha" prefWidth="159.0" text="Fecha" />
-            <TableColumn fx:id="colPaciente" prefWidth="188.0" text="Paciente" />
-            <TableColumn fx:id="colDoctor" prefWidth="202.0" text="Doctor" />
-        </columns>
-    </TableView>
+        <TableView fx:id="tablaCitas" layoutX="25.0" layoutY="50" prefHeight="300" prefWidth="650.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="100" text="ID" />
+                <TableColumn fx:id="colFecha" prefWidth="159.0" text="Fecha" />
+                <TableColumn fx:id="colPaciente" prefWidth="188.0" text="Paciente" />
+                <TableColumn fx:id="colDoctor" prefWidth="202.0" text="Doctor" />
+            </columns>
+        </TableView>
 
-    <TextField fx:id="txtFecha" layoutX="50" layoutY="370" promptText="Fecha (YYYY-MM-DD)" />
-    <TextField fx:id="txtPaciente" layoutX="250" layoutY="370" promptText="ID Paciente" />
-    <TextField fx:id="txtDoctor" layoutX="450" layoutY="370" promptText="ID Doctor" />
+        <TextField fx:id="txtFecha" layoutX="50" layoutY="370" promptText="Fecha (DD/MM/YYYY)" />
+        <ComboBox fx:id="cmbPaciente" layoutX="250" layoutY="370" prefHeight="25.0" prefWidth="149.0" promptText="Seleccione Paciente" />
+        <ComboBox fx:id="cmbDoctor" layoutX="448.0" layoutY="370.0" prefHeight="25.0" prefWidth="139.0" promptText="Seleccione Doctor" />
 
-    <Button fx:id="btnAgregarCita" layoutX="50" layoutY="420" onAction="#agregarCita" text="Agregar Cita" />
-    <Button fx:id="btnEliminarCita" layoutX="250" layoutY="420" onAction="#eliminarCita" text="Eliminar Cita" />
-    <Button fx:id="btnVolver" layoutX="550" layoutY="420" onAction="#volverAlMenu" text="Volver" />
+        <Button fx:id="btnAgregarCita" layoutX="50" layoutY="420" onAction="#onAgregarCita" text="Agregar Cita" />
+        <Button fx:id="btnEliminarCita" layoutX="209.0" layoutY="420.0" onAction="#onEliminarCita" text="Eliminar Cita" />
+        <Button fx:id="btnVolver" layoutX="550" layoutY="420" onAction="#volverAlMenu" text="Volver" />
+        <Button fx:id="btnListarCitas" layoutX="366.0" layoutY="420.0" onAction="#onListarCitas" prefHeight="25.0" prefWidth="127.0" text="Listar Citas" />
+    </children>
 </AnchorPane>

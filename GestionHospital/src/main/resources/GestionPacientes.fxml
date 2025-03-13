@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500" prefWidth="700" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.GestionPacientesViewController">
-
-    <TableView fx:id="tablaPacientes" layoutX="50" layoutY="50" prefHeight="300" prefWidth="600">
-        <columns>
-            <TableColumn fx:id="colId" prefWidth="100" text="ID" />
-            <TableColumn fx:id="colNombre" prefWidth="250" text="Nombre" />
-            <TableColumn fx:id="colEdad" prefWidth="100" text="Edad" />
-            <TableColumn fx:id="colHistorial" prefWidth="150" text="Historial" />
-        </columns>
-    </TableView>
-
-    <TextField fx:id="txtNombre" layoutX="50" layoutY="370" promptText="Nombre" />
-    <TextField fx:id="txtEdad" layoutX="250" layoutY="370" promptText="Edad" />
-    <Button fx:id="btnAgregarPaciente" layoutX="450" layoutY="370" onAction="#agregarPaciente" text="Agregar Paciente" />
-
-    <Button fx:id="btnEliminarPaciente" layoutX="50" layoutY="420" onAction="#eliminarPaciente" text="Eliminar Paciente" />
-    <Button fx:id="btnActualizarPaciente" layoutX="250" layoutY="420" onAction="#actualizarPaciente" text="Actualizar Paciente" />
-    <Button fx:id="btnVolver" layoutX="583.0" layoutY="440.0" onAction="#volverAlMenu" prefHeight="25.0" prefWidth="56.0" text="Volver" />
-   <Button fx:id="btnNombresPalindromos" layoutX="407.0" layoutY="417.0" onAction="#onMostrarNombresPalindromos" prefHeight="25.0" prefWidth="139.0" text="Nombres Palindromos" />
-   <Button fx:id="btnVocalesRepetidas" layoutX="408.0" layoutY="459.0" onAction="#onMostrarNombresVocales" prefHeight="25.0" prefWidth="139.0" text="Vocales Repetidas" />
+<AnchorPane prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.GestionPacientesViewController">
+   <children>
+   
+       <TableView fx:id="tablaPacientes" layoutX="50" layoutY="50" prefHeight="300" prefWidth="600">
+           <columns>
+               <TableColumn fx:id="colId" prefWidth="100" text="ID" />
+               <TableColumn fx:id="colNombre" prefWidth="250" text="Nombre" />
+               <TableColumn fx:id="colEdad" prefWidth="100" text="Edad" />
+               <TableColumn fx:id="colHistorial" prefWidth="150" text="Historial" />
+           </columns>
+       </TableView>
+   
+       <TextField fx:id="txtNombre" layoutX="50" layoutY="370" promptText="Nombre" />
+       <TextField fx:id="txtEdad" layoutX="217.0" layoutY="370.0" promptText="Edad" />
+       <Button fx:id="btnAgregarPaciente" layoutX="547.0" layoutY="370.0" onAction="#agregarPaciente" text="Agregar Paciente" />
+   
+       <Button fx:id="btnEliminarPaciente" layoutX="50" layoutY="420" onAction="#eliminarPaciente" text="Eliminar Paciente" />
+       <Button fx:id="btnActualizarPaciente" layoutX="176.0" layoutY="420.0" onAction="#actualizarPaciente" text="Actualizar Paciente" />
+       <Button fx:id="btnVolver" layoutX="622.0" layoutY="461.0" onAction="#volverAlMenu" prefHeight="25.0" prefWidth="56.0" text="Volver" />
+      <Button fx:id="btnNombresPalindromos" layoutX="311.0" layoutY="420.0" onAction="#onMostrarNombresPalindromos" prefHeight="25.0" prefWidth="139.0" text="Nombres Palindromos" />
+      <Button fx:id="btnVocalesRepetidas" layoutX="472.0" layoutY="420.0" onAction="#onMostrarNombresVocales" prefHeight="25.0" prefWidth="139.0" text="Vocales Repetidas" />
+      <TextField fx:id="txtId" layoutX="380.0" layoutY="370.0" promptText="Id" />
+   </children>
 </AnchorPane>

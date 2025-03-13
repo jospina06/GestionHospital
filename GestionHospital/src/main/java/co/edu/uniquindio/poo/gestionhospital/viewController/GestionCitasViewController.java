@@ -1,8 +1,6 @@
 package co.edu.uniquindio.poo.gestionhospital.viewController;
 
-
 import co.edu.uniquindio.poo.gestionhospital.Controller.GestionCitasController;
-import co.edu.uniquindio.poo.gestionhospital.Controller.GestionDoctoresController;
 import co.edu.uniquindio.poo.gestionhospital.app.App;
 import co.edu.uniquindio.poo.gestionhospital.model.*;
 
@@ -12,12 +10,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class GestionCitasViewController {
 
@@ -29,27 +27,17 @@ public class GestionCitasViewController {
     @FXML private TableColumn<Cita, String> colPaciente;
     @FXML private TableColumn<Cita, String> colDoctor;
 
+    @FXML private TextField txtFecha;
+    @FXML private ComboBox<Paciente> cmbPaciente;
+    @FXML private ComboBox<Doctor> cmbDoctor;
 
     GestionCitasController gestionCitasController;
 
-
-
-    @FXML
-    private TextField txtFecha;
-
-    @FXML
-    private TextField txtPaciente;
-
-    @FXML
-    private TextField txtDoctor;
-
-
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
-        cargarCitas(); // Llenar la tabla cuando se asigne el hospital
+        cargarCitas();
+        cargarListas();
     }
-
-
 
     private void cargarCitas() {
         if (hospital != null) {
@@ -58,6 +46,12 @@ public class GestionCitasViewController {
         }
     }
 
+    private void cargarListas() {
+        if (hospital != null) {
+            cmbPaciente.setItems(FXCollections.observableArrayList(hospital.getPacientes()));
+            cmbDoctor.setItems(FXCollections.observableArrayList(hospital.getDoctores()));
+        }
+    }
 
     @FXML
     public void initialize() {
@@ -80,21 +74,58 @@ public class GestionCitasViewController {
         gestionCitasController = new GestionCitasController(App.hospital);
     }
 
+    public void onAgregarCita(ActionEvent event) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate fecha = LocalDate.parse(txtFecha.getText(), formatter);
+            Paciente paciente = cmbPaciente.getValue();
+            Doctor doctor = cmbDoctor.getValue();
+
+            if (paciente == null || doctor == null) {
+                mostrarAlerta("Error", "Debe seleccionar un paciente y un doctor.");
+                return;
+            }
+
+            gestionCitasController.agendarCita(fecha, paciente.getId(), doctor.getId());
+            cargarCitas();
+            mostrarAlerta("Éxito", "Cita agendada correctamente.");
 
 
+            txtFecha.clear();
+            cmbPaciente.setValue(null);
+            cmbDoctor.setValue(null);
 
-
-    public void agregarCita(ActionEvent event) {
-        System.out.println("Cita agregada con fecha: " + txtFecha.getText());
-        // Aquí llamas al método de tu hospital para agregar la cita
+        } catch (DateTimeParseException e) {
+            mostrarAlerta("Error", "Formato de fecha incorrecto. Use dd/MM/yyyy.");
+        }
     }
 
-    public void eliminarCita(ActionEvent event) {
-        System.out.println("Cita eliminada");
-        // Aquí llamas al método para eliminar la cita
+    public void onListarCitas() {
+        List<Cita> citas = gestionCitasController.listarCitas();
+        ObservableList<Cita> citasObservable = FXCollections.observableArrayList(citas);
+        tablaCitas.setItems(citasObservable);
+    }
+
+    public void onEliminarCita(ActionEvent event) {
+        Cita citaSeleccionada = tablaCitas.getSelectionModel().getSelectedItem();
+        if (citaSeleccionada != null) {
+            gestionCitasController.cancelarCita(citaSeleccionada.getId());
+            cargarCitas();
+            mostrarAlerta("Éxito", "Cita eliminada correctamente.");
+        } else {
+            mostrarAlerta("Error", "Debe seleccionar una cita para eliminar.");
+        }
     }
 
     public void volverAlMenu(ActionEvent event) {
         App.cargarVista("/menu.fxml");
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }

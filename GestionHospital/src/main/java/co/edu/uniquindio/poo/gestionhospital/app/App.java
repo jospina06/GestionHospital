@@ -49,10 +49,8 @@ public class App extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
 
-            // Obtener el controlador de la vista cargada
             Object viewController = loader.getController();
 
-            // Pasar la instancia del hospital según el tipo de controlador
             if (viewController instanceof GestionPacientesViewController) {
                 ((GestionPacientesViewController) viewController).setHospital(hospital);
             } else if (viewController instanceof GestionDoctoresViewController) {
