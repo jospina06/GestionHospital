@@ -6,8 +6,9 @@ module co.edu.uniquindio.poo.gestionhospital {
 
     opens co.edu.uniquindio.poo.gestionhospital.model to javafx.fxml;
     exports co.edu.uniquindio.poo.gestionhospital.model;
-    //exports co.edu.uniquindio.poo.gestionhospital.viewController;
-    //exports co.edu.uniquindio.poo.gestionhospital.controller;
-    //exports co.edu.uniquindio.poo.gestionhospital.app;
-    //opens co.edu.uniquindio.poo.gestionhospital.app to javafx.fxml;
+    exports co.edu.uniquindio.poo.gestionhospital.viewController;
+    exports co.edu.uniquindio.poo.gestionhospital.Controller;
+    exports co.edu.uniquindio.poo.gestionhospital.app;
+    opens co.edu.uniquindio.poo.gestionhospital.app to javafx.fxml;
+    opens co.edu.uniquindio.poo.gestionhospital.viewController to javafx.fxml;
 }

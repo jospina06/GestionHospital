@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.gestionhospital.viewController.GestionDoctoresViewController"
+            prefWidth="700" prefHeight="500">
+
+    <TableView fx:id="tablaDoctores" layoutX="50" layoutY="50" prefWidth="600" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="100"/>
+            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="250"/>
+            <TableColumn fx:id="colEdad" text="Edad" prefWidth="100"/>
+            <TableColumn fx:id="colEspecialidad" text="Especialidad" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <TextField fx:id="txtNombre" layoutX="50" layoutY="370" promptText="Nombre"/>
+    <TextField fx:id="txtEdad" layoutX="250" layoutY="370" promptText="Edad"/>
+    <TextField fx:id="txtEspecialidad" layoutX="450" layoutY="370" promptText="Especialidad"/>
+
+    <Button fx:id="btnAgregarDoctor" text="Agregar Doctor" layoutX="50" layoutY="420" onAction="#agregarDoctor"/>
+    <Button fx:id="btnEliminarDoctor" text="Eliminar Doctor" layoutX="250" layoutY="420" onAction="#eliminarDoctor"/>
+    <Button fx:id="btnActualizarDoctor" text="Actualizar Doctor" layoutX="450" layoutY="420" onAction="#actualizarDoctor"/>
+    <Button fx:id="btnVolver" text="Volver" layoutX="600" layoutY="420" onAction="#volverAlMenu"/>
+</AnchorPane>

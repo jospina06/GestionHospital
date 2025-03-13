@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.gestionhospital.model;
 
+import javax.swing.*;
 import java.util.*;
 import java.time.LocalDate;
 
@@ -258,24 +259,32 @@ public class Hospital {
      * Método que imprime todos los pacientes con nombre palindromo
      * @param
      */
-    public void imprimirPalindromos(){
+    public void imprimirPalindromos() {
+        StringBuilder mensaje = new StringBuilder("Pacientes con nombre palíndromo:\n");
+
         for (Paciente paciente : pacientes) {
             if (paciente.esPalindromo()) {
-                System.out.println(paciente);
+                mensaje.append(paciente.getNombre()).append("\n");
             }
         }
+
+        JOptionPane.showMessageDialog(null, mensaje.toString(), "Pacientes con Nombre Palíndromo", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
      * metodo que imprime los pacientes con dos vocales iguales en su nombre
      * @param
      */
-    public void imprimirVocalesiguales(){
+    public void imprimirVocalesIguales() {
+        StringBuilder mensaje = new StringBuilder("Pacientes con vocales iguales en el nombre:\n");
+
         for (Paciente paciente : pacientes) {
-            if (paciente.vocalesIguales()){
-                System.out.println(paciente);
+            if (paciente.vocalesIguales()) {
+                mensaje.append(paciente.getNombre()).append("\n");
             }
         }
+
+        JOptionPane.showMessageDialog(null, mensaje.toString(), "Pacientes con Vocales Iguales", JOptionPane.INFORMATION_MESSAGE);
     }
 
 

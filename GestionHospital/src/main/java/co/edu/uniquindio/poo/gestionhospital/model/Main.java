@@ -20,8 +20,8 @@ public class Main {
         hospital.agendarCita(LocalDate.of(1970, 5, 20), "123", "DR1");
 
 
-        hospital.imprimirPalindromos();
-        hospital.imprimirVocalesiguales();
+        //hospital.imprimirPalindromos();
+        //hospital.imprimirVocalesIguales();
 
     }
 

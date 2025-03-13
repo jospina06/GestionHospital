@@ -1,18 +1,22 @@
 package co.edu.uniquindio.poo.gestionhospital.viewController;
-
-import javafx.fxml.FXML;
+import co.edu.uniquindio.poo.gestionhospital.app.App;
+import javafx.event.ActionEvent;
 
 public class MenuViewController {
 
-    @FXML
-    private void irAGestionPacientes() { /* Lógica aquí */ }
+    public void irAGestionPacientes(ActionEvent event) {
+        App.cargarVista("/GestionPacientes.fxml");
+    }
 
-    @FXML
-    private void irAGestionDoctores() { /* Lógica aquí */ }
+    public void irAGestionDoctores(ActionEvent event) {
+        App.cargarVista("/GestionDoctores.fxml");
+    }
 
-    @FXML
-    private void irAGestionCitas() { /* Lógica aquí */ }
+    public void irAGestionCitas(ActionEvent event) {
+        App.cargarVista("/GestionCitas.fxml");
+    }
 
-    @FXML
-    private void salir() { /* Lógica aquí */ }
+    public void salir(ActionEvent event) {
+        System.exit(0);
+    }
 }
