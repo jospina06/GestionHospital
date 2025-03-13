@@ -14,6 +14,7 @@ public class App extends Application {
 
     public static Hospital hospital = new Hospital("Cosmitet");
 
+
     static {
         // Agregando datos de prueba
         Paciente paciente1 = new Paciente("Juan Pérez", "123", 50);
@@ -30,6 +31,16 @@ public class App extends Application {
         hospital.agendarCita(LocalDate.now(), "123", "789");
         hospital.agendarCita(LocalDate.of(2026, 10, 5), "456", "101");
         hospital.agendarCita(LocalDate.of(1970, 5, 20), "123", "101");
+
+        Consulta consulta0 = new Consulta(LocalDate.of(2025, 8, 22), paciente1, doctor2);
+        hospital.agregarConsultaHistorial(consulta0, "123");
+        hospital.agregarEnfermedadUltimaConsulta("123", "Bronquitis");
+        hospital.agregarMedicamentoUltimaConsulta("123", "Acetaminofen");
+
+        Consulta consulta1 = new Consulta(LocalDate.of(2024, 5, 21), paciente2, doctor2);
+        hospital.agregarConsultaHistorial(consulta1, "456");
+        hospital.agregarEnfermedadUltimaConsulta("456", "Dolor de cabeza");
+        hospital.agregarMedicamentoUltimaConsulta("456", "Acetaminofen");
 
     }
 
